@@ -13,8 +13,14 @@ function funcao1()
 
     try {
         funcao2(); // A função 2 não tem o try/catch; a função 1 então faz o tratamento.
-    } catch (RuntimeException $problema) {
-        echo "Na função 1, eu resolvi o problema da função 2." . PHP_EOL;
+    // } catch (RuntimeException $problema) {
+    //     echo "Na função 1, eu resolvi o problema da função 2." . PHP_EOL;
+    // } catch (DivisionByZeroError $problema) {
+    //     echo "Erro ao dividir um número por zero." . PHP_EOL;
+    } catch (DivisionByZeroError | RuntimeException $problema) { // Multi catching, captura várias exceções ao mesmo tempo.
+        echo  "\tMensagem: " . $problema->getMessage() . PHP_EOL;
+        echo  "\tLinha: " . $problema->getLine() . PHP_EOL;
+        echo  "\tCallstack: " . $problema->getTraceAsString() . PHP_EOL;
     }
 
     echo 'Saindo da função 1' . PHP_EOL;
@@ -23,9 +29,9 @@ function funcao1()
 function funcao2()
 {
     echo 'Entrei na função 2' . PHP_EOL;
+    $divisao = intdiv(5, 0); // Lança uma ERRO de divisão por zero.
     $arrayFixo = new SplFixedArray(2); // Cria um array com um tamanho fixo de 2 posições.
     $arrayFixo[3] = 'Valor'; // Tenta atribuir um valor à quarta posição. Lança uma EXCEÇÃO.'
-    // $divisao = intdiv(5, 0); // Lança uma ERRO de divisão por zero.
     for ($i = 1; $i <= 5; $i++) {
         echo $i . PHP_EOL;
     }
