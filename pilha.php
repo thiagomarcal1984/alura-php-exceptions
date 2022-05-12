@@ -13,6 +13,43 @@ function funcao2()
     for ($i = 1; $i <= 5; $i++) {
         echo $i . PHP_EOL;
     }
+
+    // XDebug é uma ferramenta própria pra debugar em PHP.
+    // Tem curso na Alura sobre isso.
+
+    // debug_backtrace() retorna a pilha de execução a partir do ponto 
+    // em que essa função foi chamada.s
+    print_r(debug_backtrace());
+    // var_dump(debug_backtrace());
+    // Saída de var_dump(debug_backtrace()):
+    /*
+    array(2) {
+        [0]=>
+        array(4) {
+            ["file"]=>
+            string(31) "D:\git\php-exceptions\pilha.php"
+            ["line"]=>
+            int(6)
+            ["function"]=>
+            string(7) "funcao2"
+            ["args"]=>
+            array(0) {
+            }
+        }
+        [1]=>
+        array(4) {
+            ["file"]=>
+            string(31) "D:\git\php-exceptions\pilha.php"
+            ["line"]=>
+            int(21)
+            ["function"]=>
+            string(7) "funcao1"
+            ["args"]=>
+            array(0) {
+            }
+        }
+    }
+    */
     echo 'Saindo da função 2' . PHP_EOL;
 }
 
