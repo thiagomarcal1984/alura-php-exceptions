@@ -3,13 +3,22 @@
 function funcao1()
 {
     echo 'Entrei na função 1' . PHP_EOL;
-    // $arrayFixo = new SplFixedArray(2); // Cria um array com um tamanho fixo de 2 posições.
-    // $arrayFixo[3] = 'Valor'; // Tenta atribuir um valor à quarta posição. Lança uma EXCEÇÃO.'
+    try {
+        $arrayFixo = new SplFixedArray(2); // Cria um array com um tamanho fixo de 2 posições.
+        $arrayFixo[3] = 'Valor'; // Tenta atribuir um valor à quarta posição. Lança uma EXCEÇÃO.'
+    } catch (RuntimeException $erro) { 
+        echo "Aconteceu um erro na função 1." . PHP_EOL;
+        echo "\tTipo: " . get_class($erro) . PHP_EOL;
+    }
 
-    $divisao = intdiv(5, 0); // Lança uma ERRO de divisão por zero.
+    // $divisao = intdiv(5, 0); // Lança uma ERRO de divisão por zero.
+
     // Erros e Exceções são coisas distintas.
     // Erros são da abordagem procedural; são oriundos do ambiente do programa; é descrita com line number, arquivo e mensagem.
     // Exceções são da abordagem OO; são oriundas do próprio programa; é mudam o fluxo normal do programa/script. 
+
+    // O PHP exige a definição do tipo capturado: Exception ou Error.
+    // Você pode usar o \Throwable para tornar o try/catch mais genérico.
 
     funcao2();
     echo 'Saindo da função 1' . PHP_EOL;
