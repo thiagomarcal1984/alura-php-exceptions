@@ -3,6 +3,14 @@
 function funcao1()
 {
     echo 'Entrei na função 1' . PHP_EOL;
+    // $arrayFixo = new SplFixedArray(2); // Cria um array com um tamanho fixo de 2 posições.
+    // $arrayFixo[3] = 'Valor'; // Tenta atribuir um valor à quarta posição. Lança uma EXCEÇÃO.'
+
+    $divisao = intdiv(5, 0); // Lança uma ERRO de divisão por zero.
+    // Erros e Exceções são coisas distintas.
+    // Erros são da abordagem procedural; são oriundos do ambiente do programa; é descrita com line number, arquivo e mensagem.
+    // Exceções são da abordagem OO; são oriundas do próprio programa; é mudam o fluxo normal do programa/script. 
+
     funcao2();
     echo 'Saindo da função 1' . PHP_EOL;
 }
