@@ -4,6 +4,9 @@ function funcao1()
 {
     echo 'Entrei na função 1' . PHP_EOL;
 
+    // Hierarquia de exceções da Standard PHP Library:
+    // https://www.php.net/manual/pt_BR/spl.exceptions.php
+
     // Erros e Exceções são coisas distintas.
     // Em PHP, não se pode criar uma classe baseada na classe Erro, apenas
     // na classe Exception. A interface Throwable não pode ser implementada
@@ -38,7 +41,9 @@ function funcao2()
 {
     echo 'Entrei na função 2' . PHP_EOL;
 
-    $exception = new RuntimeException();
+    $exception = new BadFunctionCallException();
+    // BadFunctionCallException não é filha de RuntimeException.
+    // Por isso, ela não vai ser capturada na funcao1.
     throw $exception;
 
     echo 'Saindo da função 2' . PHP_EOL;
