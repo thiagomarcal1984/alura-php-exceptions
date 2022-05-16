@@ -5,8 +5,14 @@ function funcao1()
     echo 'Entrei na função 1' . PHP_EOL;
 
     // Erros e Exceções são coisas distintas.
-    // Erros são da abordagem procedural; são oriundos do ambiente do programa; é descrita com line number, arquivo e mensagem.
-    // Exceções são da abordagem OO; são oriundas do próprio programa; é mudam o fluxo normal do programa/script. 
+    // Em PHP, não se pode criar uma classe baseada na classe Erro, apenas
+    // na classe Exception. A interface Throwable não pode ser implementada
+    // diretamente também: é necessário estender a classe Exception.
+    // Erros são da abordagem procedural; são oriundos do ambiente do programa; 
+    //       é descrita com line number, arquivo e mensagem.
+    // Exceções são da abordagem OO; são oriundas do próprio programa; 
+    //       mudam o fluxo normal do programa/script. 
+
 
     // O PHP exige a definição do tipo capturado: Exception ou Error.
     // Você pode usar o \Throwable para tornar o try/catch mais genérico.
