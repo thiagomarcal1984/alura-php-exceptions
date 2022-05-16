@@ -22,16 +22,11 @@ function funcao1()
 
     try {
         funcao2(); // A função 2 não tem o try/catch; a função 1 então faz o tratamento.
-    } catch (DivisionByZeroError | RuntimeException $problema) { // Multi catching, captura várias exceções ao mesmo tempo.
+    // } catch (DivisionByZeroError | RuntimeException $problema) { // Multi catching, captura várias exceções ao mesmo tempo.
+    } catch (Throwable $problema) { // Capturando qualquer Throwable (Exceção ou Erro)
         echo  "\tMensagem: " . $problema->getMessage() . PHP_EOL;
         echo  "\tLinha: " . $problema->getLine() . PHP_EOL;
         echo  "\tCallstack: " . $problema->getTraceAsString() . PHP_EOL;
-
-        throw new RuntimeException(
-            'Exceção foi tratada, mas há pendências.', // Mensagem de erro.
-            1, // Código do erro.
-            $problema // Exceção lançada.
-        );
     }
 
     echo 'Saindo da função 1' . PHP_EOL;
