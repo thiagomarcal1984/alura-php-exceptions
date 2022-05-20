@@ -1,0 +1,7 @@
+[20-May-2022 00:54:34 UTC] PHP Warning:  Undefined variable $variavel in D:\alura\php-exceptions\erros.php on line 39
+[20-May-2022 00:54:34 UTC] PHP Warning:  Undefined variable $array in D:\alura\php-exceptions\erros.php on line 42
+[20-May-2022 00:54:34 UTC] PHP Warning:  Trying to access array offset on value of type null in D:\alura\php-exceptions\erros.php on line 42
+[20-May-2022 00:54:34 UTC] PHP Fatal error:  Uncaught Error: Undefined constant "CONSTANTE3" in D:\alura\php-exceptions\erros.php:46
+Stack trace:
+#0 {main}
+  thrown in D:\alura\php-exceptions\erros.php on line 46
